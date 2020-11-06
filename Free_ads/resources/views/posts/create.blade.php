@@ -6,7 +6,7 @@
 @section('content')
 <h1>Création de l'article</h1>
 
-{!! Form::open(['action' => 'App\Http\Controllers\PostsController@store', 'method'=>'POST']) !!}
+{!! Form::open(['action' => 'App\Http\Controllers\PostsController@store', 'method'=>'POST'],['enctype'=>"multipart/form-data"])!!}
     <div class="form-group">
         {{Form::label('title','Titre')}}
         {{Form::text('title','',['class'=>'form-control','placeholder'=>"Titre de l'annonce"])}}
@@ -29,7 +29,8 @@
     </div>
     <div class="form-group">
         {{Form::label('picture','Photo')}}
-        {{Form::text('picture','',['class'=>'form-control','placeholder'=>"Uploader lien de l'image"])}}
+        <input type="file" name="picture" class="form-control" placeholder="Uploader lien de l'image">
+       <!-- {{Form::text('picture','',['class'=>'form-control','placeholder'=>"Uploader lien de l'image"])}} -->
     </div>    
         
         {{Form::submit('Rédiger une annonce',['class'=>'btn btn-lg btn-primary'])}}

@@ -1,3 +1,50 @@
 h1{
     color: red;
 }
+
+h2{
+    color: blue;
+}
+
+.logo {
+    width: 50%;
+}
+
+.card-img-top {
+    transition: .5s ease;
+    backface-visibility: hidden;
+
+}
+
+.card-img-top:hover {
+    opacity: 0.3;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.card-content-img {
+    width: 30vw;
+}
+
+.btn-option {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row-reverse;
+}
+
+.carousel_item {
+    
+    backface-visibility: hidden;
+    transition: -webkit-transform .6s ease-in-out;
+    transition: transform .6s ease-in-out;
+    transition: transform .6s ease-in-out,-webkit-transform .6s ease-in-out;
+
+}
+
+.carousel_item img {
+    width: 10vw;
+}
