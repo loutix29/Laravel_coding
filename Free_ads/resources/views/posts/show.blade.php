@@ -16,7 +16,7 @@
            
         <div class="btn-option" style=text-align:center>
     
-        <a href="/http://127.0.0.1:8000/posts" class="btn btn primary-lg btn-primary">Retour</a>
+        <a href="/posts" class="btn btn primary-lg btn-primary">Retour</a>
         <a href="/posts/{{$post->id}}/edit" class="btn btn primary-lg btn-primary">Editer l'annonce</a>
 
         {!! Form::open(['action' => ['App\Http\Controllers\PostsController@destroy',$post->id], 'method'=>'POST']) !!}

@@ -87,7 +87,9 @@
                 </div>
             </div>
         </nav>
-        
+        <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+            @yield('carousel')
+        </div>
         <main class="container py-4">
             @include('inc.errorsuccess')
             @yield('content')
