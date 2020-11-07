@@ -16,19 +16,17 @@ use App\Http\Controllers\PostsController;
 
 // Route::get('/','DescController@bonjour');
 
-Route::get('/index', function () {
-    return view('about.index');
-});
 
 Route::get('/', function () {
-    return ('/index');
+    return view('posts.index');
+});
+
+Route::get('/contact', function () {
+    return view('about.contact');
 });
 
 
 Route::resource('posts', PostsController::class);
-
-
-
 
 Auth::routes();
 
@@ -37,3 +35,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // **************route admin**************************************
 Route::resource('admin/users', 'App\Http\Controllers\Admin_userController');
+Route::resource('admin/posts', 'App\Http\Controllers\Admin_postController');
+Route::resource('admin/categories', 'App\Http\Controllers\Admin_catController');
+
+
+// if (Auth::check() && Auth::user()->admin == 1) {
+//     return view('admin.index');
+//     } else {
+//     return redirect('/');
+//     }

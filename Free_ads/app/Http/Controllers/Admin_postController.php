@@ -2,16 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class Admin_postController extends Controller
 {
-
-    public function __construct(){
-        $this->middleware('auth',['except'=>['index','show']]);
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -19,8 +14,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('created_at','desc')->paginate(9);
-        return view('posts.index')->with('posts',$posts);
+        $posts = Post::orderBy('updated_at','desc')->paginate(50);
+        return view('admins_post.index')->with('posts',$posts);
     }
 
     /**
@@ -58,40 +53,38 @@ class PostsController extends Controller
         $post->user_id= auth()->user()->id;
         $post->save();
 
-        return redirect ('/posts')->with('success', 'Votre article a été créé !');
+        return redirect ('admin/posts')->with('success', "Votre article a été créé en tant qu'administrateur !");
            
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::find($id);
-        return view('posts.show')->with('post',$post);
-
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         $post = Post::find($id);
-        return view('posts.edit')->with('post',$post);
+        return view('admins_post.edit')->with('post',$post);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -112,22 +105,21 @@ class PostsController extends Controller
     $post->picture = $request->input('picture');
     $post->save();
 
-    return redirect ('/posts')->with('success', 'Votre article a été modifié !');
+    return redirect ('admin/posts')->with('success', "L'annonce a été modifiée en tant qu'administrateur !");
 
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Post  $post
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $post = Post::find($id);
         $post->delete();
-        return redirect ('/posts')->with('success', 'Votre article a été supprimé !');
+        return redirect ('/admin/posts')->with('success', "L'utilisateur été supprimé !");
 
- 
     }
 }

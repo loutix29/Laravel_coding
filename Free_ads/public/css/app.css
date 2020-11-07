@@ -10907,3 +10907,15 @@ h1 {
   color: red;
 }
 
+h2 {
+  color: green;
+}
+
+h3 {
+  color: yellowgreen;
+}
+
+.bd-placeholder-img rounded-circle {
+  background-color: yellowgreen;
+}
+

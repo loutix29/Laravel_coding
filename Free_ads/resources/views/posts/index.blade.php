@@ -19,7 +19,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h5>
                         <p class="card-text">{{$post->description}}</p>
-                        <a href="/posts/{{$post->id}}" class="btn btn-primary">Voir l'annonce</a>
+                        <a href="/posts/{{$post->id}}" class="btn btn-primary">Voir l'annonce test</a>
                     </div>
                 </div>
             </div>    
