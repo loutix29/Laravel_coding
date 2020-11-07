@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
+                <div class="card-header">TABLEAU DE BORD</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    
-                    <a href="/posts/create" class="btn btn-primary" style="margin-bottom:15px">Créer une annonce</a>
                     <hr>
                     <h3>Vos annonces</h3>
                     
@@ -22,12 +20,14 @@
                     <table class="table table-striped">
                         <tr>
                             <th>Titre</th>
+                            <th>Créer</th>
                             <th>Editer</th>
                             <th>Supprimer</th>
                         </tr>
                         @foreach ($posts as $post)
                         <tr>
                             <td>{{$post->title}}</td>
+                            <td><a href="/posts/create" class="btn btn-success" style="margin-bottom:15px;">Créer une annonce</a></td>
                             <td><a href="/posts/{{$post->id}}/edit" class="btn btn-secondary">Modifier l'annonce</a></td>
                             <td>
                                 {!! Form::open(['action' => ['App\Http\Controllers\PostsController@destroy',$post->id], 'method'=>'POST']) !!}

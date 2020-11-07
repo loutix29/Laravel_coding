@@ -40,12 +40,12 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/contact">Contact <span class="sr-only">(current)</span></a>
                         </li>
-                        {{-- <li class="nav-item active">
-                            <a class="nav-link" href="/posts">Annonces <span class="sr-only">(current)</span></a>
-                        </li> --}}
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Contact <span class="sr-only">(current)</span></a>
+                        </li>
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
+                    {{-- <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -76,18 +76,29 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
-                                    <a class="dropdown-item" href="{{ route('home') }}">
-                                        {{ __('Tableau de bord') }}
-                                    </a>
                                 </div>
                             </li>
                             
                         @endguest
-                    </ul>
+                    </ul> --}}
                 </div>
             </div>
         </nav>
         
+     <div class="container">
+
+        <nav class="nav margin">
+            <a class="nav-link disabled">Administrateur</a>
+            <a class="nav-link" href="/admin/posts">Annonces</a>
+            <a class="nav-link" href="/admin/users">Utilisateurs</a>
+            <a class="nav-link" href="/admin/categories">Catégorie</a>        
+        </nav>
+
+
+     </div>
+
+
+
         <main class="container py-4">
             @include('inc.errorsuccess')
             @yield('content')

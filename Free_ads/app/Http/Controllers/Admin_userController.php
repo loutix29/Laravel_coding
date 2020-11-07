@@ -14,8 +14,8 @@ class Admin_userController extends Controller
      */
     public function index()
     {
-        // $users = User::orderBy('created_at','desc');
-        $users = User::all();
+        
+        $users = User::orderBy('admin','desc')->paginate(50);
         return view('admins.index')->with('users',$users);
         
     }
@@ -58,9 +58,10 @@ class Admin_userController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('admins_user.edit')->with('user',$user);
     }
 
     /**
@@ -81,8 +82,10 @@ class Admin_userController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return redirect ('/admin/users')->with('success', "L'utilisateur été supprimé !");
     }
 }
