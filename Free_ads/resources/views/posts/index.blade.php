@@ -10,8 +10,8 @@
     <div class="carousel-item active" data-interval="10000">
       <img src="{{ asset('images/carousel-1.png') }}" class="d-block w-100" alt="carousel_1">
       <div class="carousel-caption d-none d-md-block">
-          <h5>Welcome!</h5>
-          <p>Choose or add your mug</p>
+          <h1>Welcome!</h1>
+          <p> Choose or add your mug</p>
         </div>
     </div>
     <div class="carousel-item" data-interval="10000">
@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h5>
 
-                        <p class="card-text">{{$post->limit()}}</p>
+                        <p class="card-text">{{$post->description}}</p>
                         <p style="text-align:justify;font-size: 30px;color: #3490dc">{!!$post->price!!}€</p>
                         <a href="/posts/{{$post->id}}" class="btn btn-primary">Voir l'annonce</a>
 
@@ -56,8 +56,10 @@
                     
                 </div>
             </div>    
-           
     @endforeach
+
+
+
 @else
     <p>Aucun Articles existants !</p>
 @endif
