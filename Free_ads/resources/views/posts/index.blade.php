@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h5>
 
-                        <p class="card-text">{{$post->description}}</p>
+                        <p class="card-text">{{$post->limit()}}</p>
                         <p style="text-align:justify;font-size: 30px;color: #3490dc">{!!$post->price!!}€</p>
                         <a href="/posts/{{$post->id}}" class="btn btn-primary">Voir l'annonce</a>
 
