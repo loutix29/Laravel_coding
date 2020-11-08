@@ -5,11 +5,7 @@
 
 @section('content')
 
-@if (Auth::check() && Auth::user()->admin != 1)
-<p> NO ACCESS </p>
 
-
-@else
 
 <h1>Création de l'article</h1>
 
@@ -43,6 +39,6 @@
 
 
 {!! Form::close() !!}
-@endif
+
 @endsection
 
