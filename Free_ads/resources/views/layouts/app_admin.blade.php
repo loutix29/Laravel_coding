@@ -22,10 +22,10 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+    <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ "/posts" }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ '/posts' }}">
+                <img class="logo" src="{{ asset('images/logo.png') }}" alt="Free ads">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -40,9 +40,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/contact">Contact <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Contact <span class="sr-only">(current)</span></a>
-                        </li>
+                        {{-- <li class="nav-item active">
+                            <a class="nav-link" href="/posts">Annonces <span class="sr-only">(current)</span></a>
+                        </li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -50,8 +50,8 @@
                         <!-- Authentication Links -->
                         @if (Auth::check() && Auth::user()->admin == 1)
                         <li class="nav-item">
-                            <a class="dropdown-item" href="{{ route('home') }}">
-                                {{ __('Tableau de bord admin') }}
+                            <a class="dropdown-item" href="admin/posts">
+                                {{ __('Tableau de bord administrateur') }}
                             </a>
                         </li>
                     @endif
@@ -85,6 +85,9 @@
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
+                                    <a class="dropdown-item" href="{{ route('home') }}">
+                                        {{ __('Tableau de bord') }}
+                                    </a>
                                 </div>
                             </li>
                             
