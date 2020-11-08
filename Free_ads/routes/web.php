@@ -16,10 +16,8 @@ use App\Http\Controllers\PostsController;
 
 // Route::get('/','DescController@bonjour');
 
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', function () {
-    return view('posts.index');
-});
 
 Route::get('/contact', function () {
     return view('about.contact');
@@ -39,8 +37,3 @@ Route::resource('admin/posts', 'App\Http\Controllers\Admin_postController');
 Route::resource('admin/categories', 'App\Http\Controllers\Admin_catController');
 
 
-// if (Auth::check() && Auth::user()->admin == 1) {
-//     return view('admin.index');
-//     } else {
-//     return redirect('/');
-//     }

@@ -7,7 +7,19 @@ use Illuminate\Http\Request;
 
 class Admin_postController extends Controller
 {
+  
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
+   
     /**
+     *
+     *
+     *
+     * 
+     * 
+     * 
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response

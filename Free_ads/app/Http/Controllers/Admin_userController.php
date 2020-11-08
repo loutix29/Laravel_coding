@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class Admin_userController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

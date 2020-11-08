@@ -4,6 +4,13 @@
 
 
 @section('content')
+
+@if (Auth::check() && Auth::user()->admin != 1)
+<p> NO ACCESS </p>
+
+
+@else
+
 <h1>Création de l'article</h1>
 
 {!! Form::open(['action' => 'App\Http\Controllers\Admin_postController@store', 'method'=>'POST']) !!}
@@ -36,6 +43,6 @@
 
 
 {!! Form::close() !!}
-
+@endif
 @endsection
 

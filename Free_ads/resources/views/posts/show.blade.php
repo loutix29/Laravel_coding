@@ -16,16 +16,18 @@
             <a href="/posts" class="btn btn primary-lg btn-primary">Retour</a>
         
         @if(!Auth::guest()) 
+            @if(Auth::user()->id == $post->user_id)
            
-        <!-- <div class="btn-option" style=text-align:center> -->
-    
-        <a href="/posts/{{$post->id}}/edit" class="btn btn primary-lg btn-primary">Editer l'annonce</a>
+            <!-- <div class="btn-option" style=text-align:center> -->
+        
+            <a href="/posts/{{$post->id}}/edit" class="btn btn primary-lg btn-primary">Editer l'annonce</a>
 
-        {!! Form::open(['action' => ['App\Http\Controllers\PostsController@destroy',$post->id], 'method'=>'POST']) !!}
-        {{Form::hidden('_method','DELETE')}}
-        {{Form::submit('Supprimer',['class'=>'btn btn danger-lg btn-danger'])}}
-        {!! Form::close() !!}
-        </div>
-        </p>
+            {!! Form::open(['action' => ['App\Http\Controllers\PostsController@destroy',$post->id], 'method'=>'POST']) !!}
+            {{Form::hidden('_method','DELETE')}}
+            {{Form::submit('Supprimer',['class'=>'btn btn danger-lg btn-danger'])}}
+            {!! Form::close() !!}
+            </div>
+            </p>
+            @endif
         @endif
     @endsection

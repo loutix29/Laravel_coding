@@ -2,6 +2,9 @@
 
 
 @section('content')
+@if (Auth::check() && Auth::user()->admin != 1)
+<p> NO ACCESS </p>
+@else
 
 
 hello
@@ -26,5 +29,6 @@ hello
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('Envoyer mes modifications',['class'=>'btn btn-lg btn-primary'])}}
 {!! Form::close() !!}
+@else
 @endsection
 

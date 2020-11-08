@@ -2,7 +2,11 @@
 
 
 @section('content')
+@if (Auth::check() && Auth::user()->admin != 1)
+<p> NO ACCESS </p>
 
+
+@else
 
 hello
 <h1>Modifier l'annonce en mode Administrateur</h1>
@@ -26,5 +30,6 @@ hello
         {{Form::hidden('_method','PUT')}}
         {{Form::submit('Envoyer mes modifications',['class'=>'btn btn-lg btn-primary'])}}
 {!! Form::close() !!}
+@endif
 @endsection
 
