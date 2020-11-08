@@ -18,8 +18,8 @@
     </div>
     <div class="form-group">
         {{Form::label('picture','Photo')}}
-        <input type="file" name="picture" value="{{ $post->picture }}" class="form-control" placeholder="Uploader lien de l'image">
-        <!--{{Form::text('picture',$post->picture,['class'=>'form-control','placeholder'=>"Uploader lien de l'image"])}}-->
+        {{-- <input type="file" name="picture" value="{{ $post->picture }}" class="form-control" placeholder="Uploader lien de l'image"> --}}
+        {{Form::text('picture',$post->picture,['class'=>'form-control','placeholder'=>"Uploader lien de l'image"])}}
     </div> 
     <div class="form-group">
               <img src="{{ Storage::url($post->picture) }}" height="200" width="200" alt="picture" />

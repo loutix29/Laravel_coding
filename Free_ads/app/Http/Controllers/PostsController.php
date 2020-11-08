@@ -20,7 +20,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(3);
+        $posts = Post::orderBy('updated_at','desc')->paginate(50);
         return view('posts.index')->with('posts',$posts);
     }
 
@@ -31,7 +31,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admins_post.create');
+        return view('posts.create');
     }
 
     /**
@@ -47,18 +47,18 @@ class PostsController extends Controller
             'title' => 'required',
             'description'  => 'required',
             'price'  => 'required',
-            //'picture'  => 'required',
-            'picture'  => 'required|image',
+            'picture'  => 'required',
+            'picture'  => 'required',
         ]
     );
 
-        $path=$request->file('picture')->store('public/images');
+       
         $post = new Post;
         $post->title = $request->input('title');
         // $post->category = $request->input('category');
         $post->description = $request->input('description');
         $post->price = $request->input('price');
-        //$post->picture = $request->input('picture');
+        $post->picture = $request->input('picture');
         $post->user_id= auth()->user()->id;
         $post->save();
 
@@ -111,17 +111,11 @@ class PostsController extends Controller
     );
     $post = Post::find($id);
 
-    if($request->hasFile('picture')){
-        $request->validate([ 'picture' => 'required|image',
-        ]);
-        $path = $request->file('picture')->store('public/images');
-        $post->picture = $path;
-    }
 
     $post->title = $request->input('title');
     $post->description = $request->input('description');
     $post->price = $request->input('price');
-    //$post->picture = $request->input('picture');
+    $post->picture = $request->input('picture');
     $post->save();
 
     return redirect ('/posts')->with('success', 'Votre article a été modifié !');

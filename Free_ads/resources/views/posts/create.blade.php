@@ -29,21 +29,13 @@
     </div>
     <div class="form-group">
         {{Form::label('picture','Photo')}}
-        <input type="file" name="picture" class="form-control" placeholder="Uploader lien de l'image">
-       <!-- {{Form::text('picture','',['class'=>'form-control','placeholder'=>"Uploader lien de l'image"])}} -->
+        {{Form::text('picture','',['class'=>'form-control','placeholder'=>"Uploader lien de l'image"])}}
     </div>    
         
         {{Form::submit('Rédiger une annonce',['class'=>'btn btn-lg btn-primary'])}}
 
-
 {!! Form::close() !!}
 
-<textarea class="form-control" id="summary-ckeditor" name="summary-ckeditor"></textarea>
-
-<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
-<script>
-CKEDITOR.replace( 'summary-ckeditor' );
-</script>
 
 @endsection
 
