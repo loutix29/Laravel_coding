@@ -98,13 +98,14 @@
         </nav>
         
      <div class="container">
-
+        @if (Auth::check() && Auth::user()->admin == 1)
         <nav class="nav margin">
             <a class="nav-link disabled">Administrateur</a>
             <a class="nav-link" href="/admin/posts">Annonces</a>
             <a class="nav-link" href="/admin/users">Utilisateurs</a>
             <a class="nav-link" href="/admin/categories">Catégorie</a>        
         </nav>
+        @endif
 
 
      </div>

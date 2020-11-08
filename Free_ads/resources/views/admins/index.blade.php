@@ -3,11 +3,7 @@
 
 
 @section('content')
-@if (Auth::check() && Auth::user()->admin != 1)
-<p> NO ACCESS </p>
 
-
-@else
 <h2>Liste des utilisateurs </h2> 
 <b>{{count($users)}}  utilisateurs actuellement enregistrés sur le site.</b> 
 <hr>
@@ -43,5 +39,5 @@
 </table>
 
 
-@endif
+
 @endsection

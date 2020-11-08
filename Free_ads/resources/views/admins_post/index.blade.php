@@ -4,11 +4,7 @@
 
 @section('content')
 
-@if (Auth::check() && Auth::user()->admin != 1)
-<p> NO ACCESS </p>
 
-
-@else
 
 <h2>Liste des annonces</h2>
 <b>{{count($posts)}}  annonces actuellement publiées sur le site.</b> 
@@ -52,5 +48,4 @@
     @endforeach
 </table>
 
-@endif
 @endsection
