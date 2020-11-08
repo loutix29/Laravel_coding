@@ -42,10 +42,9 @@
                    <a href="/posts/{{$post->id}}"> <img class="card-img-top" src="{{ asset('images/proxy-image.jpeg') }}" alt="Card image cap"></a>
                    <!-- <a href="/posts/{{$post->id}}" class="btn btn-primary">Voir l'annonce</a> -->
                     
-                    <div class="card-content">
+                    <div class="card-body">
                         <h5 class="card-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h5>
                         <p class="card-text">{{$post->limit()}}</p>
-                        <!--<p class="card-price">{{$post->price}}€</p>-->
                     </div>
                       
                     
