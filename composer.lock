@@ -1,0 +1,59 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "be991da6f98792cd9d04a0e74cb5fc25",
+    "packages": [
+        {
+            "name": "ecrmnn/lorem",
+            "version": "1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ecrmnn/lorem.git",
+                "reference": "b6e0112f204784253871615a342bdc382828e840"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ecrmnn/lorem/zipball/b6e0112f204784253871615a342bdc382828e840",
+                "reference": "b6e0112f204784253871615a342bdc382828e840",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.8"
+            },
+            "type": "helper",
+            "autoload": {
+                "psr-4": {
+                    "Ecrmnn\\Lorem\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Eckermann",
+                    "email": "danieleckermann@gmail.com"
+                }
+            ],
+            "description": "Dummy text and images for Laravel",
+            "support": {
+                "issues": "https://github.com/ecrmnn/lorem/issues",
+                "source": "https://github.com/ecrmnn/lorem/tree/1.0.3"
+            },
+            "time": "2016-03-03T20:45:55+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}
