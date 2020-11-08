@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use App\Models\Post;
 
 class PostsController extends Controller
@@ -40,21 +41,24 @@ class PostsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    { //dd($request);
         $this->validate($request, 
         [
             'title' => 'required',
             'description'  => 'required',
             'price'  => 'required',
-            'picture'  => 'required',
+            //'picture'  => 'required',
+            'picture'  => 'required|image',
         ]
     );
+
+        $path=$request->file('picture')->store('public/images');
         $post = new Post;
         $post->title = $request->input('title');
         // $post->category = $request->input('category');
         $post->description = $request->input('description');
         $post->price = $request->input('price');
-        $post->picture = $request->input('picture');
+        //$post->picture = $request->input('picture');
         $post->user_id= auth()->user()->id;
         $post->save();
 
@@ -106,10 +110,18 @@ class PostsController extends Controller
         ]
     );
     $post = Post::find($id);
+
+    if($request->hasFile('picture')){
+        $request->validate([ 'picture' => 'required|image',
+        ]);
+        $path = $request->file('picture')->store('public/images');
+        $post->picture = $path;
+    }
+
     $post->title = $request->input('title');
     $post->description = $request->input('description');
     $post->price = $request->input('price');
-    $post->picture = $request->input('picture');
+    //$post->picture = $request->input('picture');
     $post->save();
 
     return redirect ('/posts')->with('success', 'Votre article a été modifié !');
