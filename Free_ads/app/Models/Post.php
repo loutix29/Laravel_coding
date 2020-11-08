@@ -9,6 +9,7 @@ use Illuminate\Support\Str;
 class Post extends Model
 {
     use HasFactory;
+    const LIMIT = 40;
 
     protected $fillable = [
         'title',
